@@ -1,6 +1,16 @@
-import { BlogCard, Header } from "./components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BlogCard, Header, Layout } from "./components";
+import {
+  HomePage,
+  CreateBlogPage,
+  ProfilePage,
+  DashboardPage,
+  LoginPage,
+  SignupPage,
+  LandingPage,
+} from "./pages";
 
-export default function App() {
+function App() {
   const user = {
     name: "John Doe",
     avatarImage: "src/assets/blogAuthorAvatar.png",
@@ -15,10 +25,26 @@ export default function App() {
     createdAt: new Date(),
   };
 
+  const isLoggedIn = true;
+
   return (
-    <div>
-      <Header />
-      {/* <BlogCard blog={blog} user={user} /> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {isLoggedIn ? (
+            <Route path="" element={<HomePage />}></Route>
+          ) : (
+            <Route path="" element={<LandingPage />}></Route>
+          )}
+          <Route path="write" element={<CreateBlogPage />}></Route>
+          <Route path="profile" element={<ProfilePage />}></Route>
+          <Route path="dashboard" element={<DashboardPage />}></Route>
+          <Route path="login" element={<LoginPage />}></Route>
+          <Route path="signup" element={<SignupPage />}></Route>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
+
+export default App;

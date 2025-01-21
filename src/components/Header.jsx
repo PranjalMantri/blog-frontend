@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 function Header({
-  isLoggedIn = false,
+  isLoggedIn = true,
   onLogout,
   onSignIn,
   onWrite,
