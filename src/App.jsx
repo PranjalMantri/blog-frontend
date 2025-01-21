@@ -1,4 +1,4 @@
-import { BlogCard } from "./components";
+import { BlogCard, Header } from "./components";
 
 export default function App() {
   const user = {
@@ -17,7 +17,8 @@ export default function App() {
 
   return (
     <div>
-      <BlogCard blog={blog} user={user} />
+      <Header />
+      {/* <BlogCard blog={blog} user={user} /> */}
     </div>
   );
 }
