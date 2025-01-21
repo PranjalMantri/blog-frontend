@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 function Header({
-  isLoggedIn = true,
+  isLoggedIn = false,
   onLogout,
   onSignIn,
   onWrite,
@@ -10,7 +10,7 @@ function Header({
 }) {
   return (
     <div>
-      <div className="w-full h-auto px-40 py-8 shadow-sm flex justify-between">
+      <div className="w-full h-auto px-40 py-5 shadow-sm flex justify-between">
         <div className="text-3xl font-semibold text-slate-800 font-inter">
           BlogSpace
         </div>

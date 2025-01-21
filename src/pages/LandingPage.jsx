@@ -1,4 +1,4 @@
-import { LandingPageBlogCard } from "../components";
+import { BlogCard, LandingPageBlogCard } from "../components";
 
 function LandingPage() {
   const user = {
@@ -16,10 +16,26 @@ function LandingPage() {
   };
 
   return (
-    <div>
-      <div>Landing page</div>
+    <div className="px-40">
+      <div className="flex flex-col justify-center gap-4 items-center py-9">
+        <div className="text-6xl font-bold ">Where good Ideas find you</div>
+        <div className="text-xl max-w-[50%] text-center">
+          Read and share new perspectives on just about any topic. Everyone's
+          welcome.
+        </div>
+      </div>
       <div className="flex justify-center items-center">
         <LandingPageBlogCard blog={blog} user={user} />
+      </div>
+      <div className="flex flex-col justify-center gap-4 px-4 py-9">
+        <div className="text-3xl font-semibold text-slate-800">
+          Trending now on BlogSpace
+        </div>
+      </div>
+      <div className="flex gap-4">
+        <BlogCard blog={blog} user={user} />
+        <BlogCard blog={blog} user={user} />
+        <BlogCard blog={blog} user={user} />
       </div>
     </div>
   );

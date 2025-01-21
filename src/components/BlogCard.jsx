@@ -21,10 +21,10 @@ function BlogCard({ blog, user }) {
   const date = formatDate(createdAt);
 
   return (
-    <div className="flex flex-col max-w-96 h-auto m-4 shadow-md">
+    <div className="flex flex-col max-w-[21rem] rounded-lg h-auto m-4 shadow-md">
       {/* Blog Cover Image  */}
-      <div className="">
-        <img src={coverImage} alt={title} className="object-cover" />
+      <div>
+        <img src={coverImage} alt={title} className="object-cover rounded-lg" />
       </div>
 
       {/* User Avatar  */}
