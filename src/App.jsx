@@ -25,7 +25,7 @@ function App() {
     createdAt: new Date(),
   };
 
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <Router>
