@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { BlogCard, Header, Layout } from "./components";
+import { BlogCard, Header, Layout, ProtectedRoute } from "./components";
 import {
   HomePage,
   CreateBlogPage,
@@ -11,10 +11,10 @@ import {
   LogoutPage,
 } from "./pages";
 import { isLoggedInState } from "./store/auth.store";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const isLoggedIn = useRecoilValue(isLoggedInState);
 
   const user = {
     name: "John Doe",
@@ -39,12 +39,43 @@ function App() {
           ) : (
             <Route path="" element={<LandingPage />}></Route>
           )}
-          <Route path="write" element={<CreateBlogPage />}></Route>
-          <Route path="profile" element={<ProfilePage />}></Route>
-          <Route path="dashboard" element={<DashboardPage />}></Route>
+
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="signup" element={<SignupPage />}></Route>
-          <Route path="logout" element={<LogoutPage />}></Route>
+
+          {/* Protected Routes */}
+          <Route
+            path="write"
+            element={
+              <ProtectedRoute>
+                <CreateBlogPage />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="logout"
+            element={
+              <ProtectedRoute>
+                <LogoutPage />
+              </ProtectedRoute>
+            }
+          ></Route>
         </Route>
       </Routes>
     </Router>

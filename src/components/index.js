@@ -5,6 +5,7 @@ import Tag from "./Tag";
 import Button from "./Button";
 import Layout from "./Layout";
 import LandingPageBlogCard from "./LandingPageBlogCard";
+import ProtectedRoute from "./ProtectedRoute";
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   Layout,
   LandingPageBlogCard,
   SubSection,
+  ProtectedRoute,
 };
