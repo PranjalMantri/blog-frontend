@@ -10,8 +10,12 @@ import {
   LandingPage,
   LogoutPage,
 } from "./pages";
+import { isLoggedInState } from "./store/auth.store";
+import { useRecoilState } from "recoil";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+
   const user = {
     name: "John Doe",
     avatarImage: "src/assets/blogAuthorAvatar.png",
@@ -25,8 +29,6 @@ function App() {
     coverImage: "src/assets/blogCoverImage.svg",
     createdAt: new Date(),
   };
-
-  const isLoggedIn = true;
 
   return (
     <Router>

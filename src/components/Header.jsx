@@ -1,14 +1,10 @@
 import Button from "./Button";
+import { isLoggedInState } from "../store/auth.store";
 import { Link, useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 
-function Header({
-  isLoggedIn = true,
-  onLogout,
-  onSignIn,
-  onWrite,
-  onDashboard,
-  onProfile,
-}) {
+function Header({ onLogout }) {
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const navigate = useNavigate();
   return (
     <div>
@@ -41,7 +37,7 @@ function Header({
                 text="Logout"
                 color="transparent"
                 textColor="red"
-                onClick={() => navigate("/logout")}
+                onClick={onLogout}
               />
             </>
           ) : (
