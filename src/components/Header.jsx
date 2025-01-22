@@ -1,18 +1,20 @@
 import Button from "./Button";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header({
-  isLoggedIn = false,
+  isLoggedIn = true,
   onLogout,
   onSignIn,
   onWrite,
   onDashboard,
   onProfile,
 }) {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="w-full h-auto px-40 py-5 shadow-sm flex justify-between">
-        <div className="text-3xl font-semibold text-slate-800 font-inter">
-          BlogSpace
+        <div className="text-3xl font-semibold text-slate-800 font-inter cursor-pointer">
+          <Link to="/">BlogSpace</Link>
         </div>
         <div className="flex gap-8 items-center">
           {isLoggedIn ? (
@@ -21,25 +23,25 @@ function Header({
                 text="Write"
                 color="transparent"
                 textColor="black"
-                onClick={onWrite}
+                onClick={() => navigate("/write")}
               />
               <Button
                 text="Dashboard"
                 color="transparent"
                 textColor="black"
-                onClick={onDashboard}
+                onClick={() => navigate("/dashboard")}
               />
               <Button
                 text="Profile"
                 color="transparent"
                 textColor="black"
-                onClick={onProfile}
+                onClick={() => navigate("/profile")}
               />
               <Button
                 text="Logout"
                 color="transparent"
                 textColor="red"
-                onClick={onLogout}
+                onClick={() => navigate("/logout")}
               />
             </>
           ) : (
@@ -48,19 +50,19 @@ function Header({
                 text="Write"
                 color="transparent"
                 textColor="black"
-                onClick={onWrite}
+                onClick={() => navigate("/write")}
               />
               <Button
                 text="SignIn"
                 color="transparent"
                 textColor="green"
-                onClick={onSignIn}
+                onClick={() => navigate("/login")}
               />
               <Button
                 color={"#15803d"}
                 textColor={"white"}
                 text={"Get Started"}
-                onClick={() => alert("Sign Up")}
+                onClick={() => navigate("/signup")}
               />
             </>
           )}

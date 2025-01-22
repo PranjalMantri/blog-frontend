@@ -8,6 +8,7 @@ import {
   LoginPage,
   SignupPage,
   LandingPage,
+  LogoutPage,
 } from "./pages";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="dashboard" element={<DashboardPage />}></Route>
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="signup" element={<SignupPage />}></Route>
+          <Route path="logout" element={<LogoutPage />}></Route>
         </Route>
       </Routes>
     </Router>
